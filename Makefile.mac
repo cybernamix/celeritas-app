@@ -1,7 +1,6 @@
 BINARY_NAME=celeritasApp
 
 build:
-	@go mod vendor
 	@echo "Building Celeritas..."
 	@go build -o tmp/${BINARY_NAME} .
 	@echo "Celeritas built!"
@@ -17,12 +16,6 @@ clean:
 	@rm tmp/${BINARY_NAME}
 	@echo "Cleaned!"
 
-start_compose:
-	docker-compose up -d
-
-stop_compose:
-	docker-compose down
-
 test:
 	@echo "Testing..."
 	@go test ./...
@@ -32,8 +25,7 @@ start: run
 
 stop:
 	@echo "Stopping Celeritas..."
-	@taskkill /IM ${BINARY_NAME} /F
+	@-pkill -SIGTERM -f "./tmp/${BINARY_NAME}"
 	@echo "Stopped Celeritas!"
 
 restart: stop start
-
