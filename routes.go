@@ -8,7 +8,9 @@ import (
 
 func (a *application) routes() *chi.Mux {
 	// middleware must come before any routes
-	a.use(a.Middleware.CheckRemember)
+
+	//uncomment following if activating authenticated Logins
+	//a.use(a.Middleware.CheckRemember)
 
 	// add routes here - can use the shortcut of a.get... / a.post... and use the convenience function rather than the complete a.App.Routes.Get.....
 

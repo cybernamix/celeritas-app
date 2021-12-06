@@ -6,7 +6,7 @@ build:
 	@echo Celeritas built!
 
 run:
-	@echo Staring Celeritas...
+	@echo Starting Celeritas...
 	@start /min cmd /c tmp\${BINARY_NAME} &
 	@echo Celeritas started!
 
