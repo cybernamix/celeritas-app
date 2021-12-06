@@ -20,8 +20,7 @@ type Models struct {
 	// uncomment the following if using Authentication
 	// Users User
 	// Tokens Token
-	
-	
+
 }
 
 // New initializes the models package for use
@@ -47,7 +46,7 @@ func New(databasePool *sql.DB) Models {
 		//Uncomment following if using Authentication  models
 		// Users: User{},
 		// Tokens: Token{},
-		
+	}
 }
 
 // getInsertID returns the integer value of a newly inserted id (using upper)
