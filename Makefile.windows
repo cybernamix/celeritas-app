@@ -1,32 +1,38 @@
-BINARY_NAME=celeritasApp.exe
+BINARY_NAME=celeritasApp
 
-## build: builds all binaries
 build:
 	@go mod vendor
+	@echo "Building Celeritas..."
 	@go build -o tmp/${BINARY_NAME} .
-	@echo Celeritas built!
+	@echo "Celeritas built!"
 
 run: build
-	@echo Staring Celeritas...
-	@.\tmp\${BINARY_NAME} &
-	@echo Celeritas started!
+	@echo "Starting Celeritas..."
+	@./tmp/${BINARY_NAME} &
+	@echo "Celeritas started!"
 
 clean:
-	@echo Cleaning...
+	@echo "Cleaning..."
 	@go clean
-	@del .\tmp\${BINARY_NAME}
-	@echo Cleaned!
+	@rm tmp/${BINARY_NAME}
+	@echo "Cleaned!"
+
+start_compose:
+	docker-compose up -d
+
+stop_compose:
+	docker-compose down
 
 test:
-	@echo Testing...
+	@echo "Testing..."
 	@go test ./...
-	@echo Done!
+	@echo "Done!"
 
 start: run
 
 stop:
-	@echo "Starting the front end..."
+	@echo "Stopping Celeritas..."
 	@taskkill /IM ${BINARY_NAME} /F
-	@echo Stopped Celeritas
+	@echo "Stopped Celeritas!"
 
 restart: stop start
