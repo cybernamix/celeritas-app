@@ -17,6 +17,10 @@ var upper db2.Session
 type Models struct {
 	// any models inserted here (and in the New function)
 	// are easily accessible throughout the entire application
+	// uncomment the following if using Authentication
+	// Users User
+	// Tokens Token
+	
 	
 }
 
@@ -40,6 +44,9 @@ func New(databasePool *sql.DB) Models {
 	}
 
 	return Models{
+		//Uncomment following if using Authentication  models
+		// Users: User{},
+		// Tokens: Token{},
 		
 }
 
