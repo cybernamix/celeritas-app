@@ -43,7 +43,7 @@ func New(databasePool *sql.DB) Models {
 		upper, _ = postgresql.New(databasePool)
 	}
 
-	return Models{
+	return Models {
 		//Uncomment following if using Authentication models
 		// Users: User{},
 		// Tokens: Token{},
